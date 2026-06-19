@@ -6,7 +6,7 @@ spec:
   destination:
     name: supervisor-ns-acme-staging-fjdfm
     namespace: acme-staging-fjdfm
-  project: infra
+  project: default
   source:
     path: virtualmachine/source
     repoURL: https://github.com/mylesagray/vks-argocd-examples
