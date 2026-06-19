@@ -69,5 +69,4 @@ stringData:
         # Password: VMware1!
         passwd: "$6$XlPaQkGtoUOWqfKz$Jb3uBcfTpIIskc3oFGZYwyaqRCDp..Q7EGvAkEAlb5hv.la5MCaBd1OxjOJJstEE78LoXsR2QByXsfCmXFNZ11"
         ssh_authorized_keys:
-          - ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAyCdobTWPsYBjDRTcUYO/6LF8wwkVAlU8Jm1KcB9FV+qbjmazGH0JV156LnwerqU59ehc9CSSCFRciSyq/04lHoD3erXqzloBEBxnynq7aWHVotB39ODRSTvjqraGh2+MfIeatTeAtRB7k6LLhcT9ADdAMQIR236W9iHxAX9rJVHwtdtDQNckdFSSdlgnH1FcZvlsAPelmBe/tNYVm091/vJZEqfKR80QKDc7Dmah7NJImWPuQXtsPAecOX/iEMVJJDeHnAI1zyJ7Mvqfph3Tp5qIcLgQ/UadSt18dHUyXaYuOXDzbVJX3/EBkV+FAymjklbTFVz965niGyaEw1aW+Q== rsa-key-20220728
-
+          - sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIEtqyiYiaILm5EZsePdG8zmdi5xF1M3/H/pYMLIX0Ua0AAAAC3NzaDpkZXZfa2V5 ssh:dev_key
