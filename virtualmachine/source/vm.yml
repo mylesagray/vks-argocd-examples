@@ -47,7 +47,7 @@ spec:
   resources:
     requests:
       storage: 10Gi
-  storageClassName: vsan-default-storage-policy
+  storageClassName: site-a-vsan-supervisor-default-storage-policy
 ---
 apiVersion: v1
 kind: Secret
