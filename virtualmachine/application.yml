@@ -4,8 +4,8 @@ metadata:
   name: gitops-vm-exmaple
 spec:
   destination:
-    name: supervisor-ns-dev-1-shkrg
-    namespace: dev-1-shkrg
+    name: supervisor-ns-acme-staging-fjdfm
+    namespace: acme-staging-fjdfm
   project: infra
   source:
     path: virtualmachine/source
