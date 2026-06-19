@@ -7,7 +7,6 @@ metadata:
   labels:
     vm-selector: vm-sns7
     gitops-vm-lb: vm-lb-selector
-    topology.kubernetes.io/zone: zone1
 spec:
   className: best-effort-small
   # Friendly image name: noble-server-cloudimg-amd64
