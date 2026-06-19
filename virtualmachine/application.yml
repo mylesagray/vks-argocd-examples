@@ -9,7 +9,7 @@ spec:
   project: infra
   source:
     path: virtualmachine/source
-    repoURL: https://github.com/warroyo/vks-argocd-examples
+    repoURL: https://github.com/mylesagray/vks-argocd-examples
     targetRevision: main
   syncPolicy:
     automated:
