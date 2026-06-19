@@ -12,7 +12,7 @@ spec:
   className: best-effort-small
   # Friendly image name: noble-server-cloudimg-amd64
   imageName: vmi-37942d180a09096b9
-  storageClass: vsan-default-storage-policy
+  storageClass: site-a-vsan-supervisor-default-storage-policy
   powerState: PoweredOn
   volumes:
     - name: gitops-vm-pvc-0
