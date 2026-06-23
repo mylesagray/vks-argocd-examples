@@ -2,7 +2,6 @@ apiVersion: cluster.x-k8s.io/v1beta2
 kind: Cluster
 metadata:
   name: vks-01
-  namespace: acme-staging-fjdfm
 spec:
   clusterNetwork:
     pods:
@@ -37,5 +36,5 @@ spec:
     workers:
       machineDeployments:
         - class: node-pool
-          name: kubernetes-cluster-8qjz-np-rm2y
+          name: vks-01-pool
           replicas: 1
