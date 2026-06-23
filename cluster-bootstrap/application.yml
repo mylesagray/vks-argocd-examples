@@ -6,33 +6,33 @@ spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
-  - clusters:
-      selector:
-        matchLabels:
-          type: 'vks'
+    - clusters:
+        selector:
+          matchLabels:
+            type: "vks"
   template:
     metadata:
-      name: '{{.name}}-cluster-bootstrap'
+      name: "{{.name}}-cluster-bootstrap"
       finalizers:
-      - resources-finalizer.argocd.argoproj.io
+        - resources-finalizer.argocd.argoproj.io
     spec:
       project: "default"
       source:
         path: ./cluster-bootstrap/basic
-        repoURL: https://github.com/warroyo/vks-argocd-examples
+        repoURL: https://github.com/mylesagray/vks-argocd-examples
         targetRevision: main
         kustomize:
-          namePrefix: '{{.name}}-'
+          namePrefix: "{{.name}}-"
           patches:
-          - target:
-              kind: Application
-            patch: |-
-              - op: replace
-                path: /spec/destination/name
-                value: '{{.name}}'
+            - target:
+                kind: Application
+              patch: |-
+                - op: replace
+                  path: /spec/destination/name
+                  value: '{{.name}}'
       destination:
-        name: 'gitops-pcb4w'
-        namespace: 'gitops-pcb4w'
+        name: "gitops-pcb4w"
+        namespace: "gitops-pcb4w"
       syncPolicy:
         automated:
           prune: true

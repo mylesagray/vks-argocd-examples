@@ -9,10 +9,10 @@ spec:
   project: default
   sources:
     - path: ./cert-manager/issuers/secret-store-acme
-      repoURL: https://github.com/warroyo/vks-argocd-examples
+      repoURL: https://github.com/mylesagray/vks-argocd-examples
       targetRevision: main
     - path: ./secret-store-issuer-full/source
-      repoURL: https://github.com/warroyo/vks-argocd-examples
+      repoURL: https://github.com/mylesagray/vks-argocd-examples
       targetRevision: main
   syncPolicy:
     automated:
@@ -25,4 +25,4 @@ spec:
         maxDuration: 3m0s
       limit: 5
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true

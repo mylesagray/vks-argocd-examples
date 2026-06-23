@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gitops-vm-example
+  name: gitops-vks-cluster-example
 spec:
   destination:
     name: supervisor-ns-acme-staging-fjdfm
     namespace: acme-staging-fjdfm
   project: default
   source:
-    path: virtualmachine/source
+    path: clusters/source
     repoURL: https://github.com/mylesagray/vks-argocd-examples
     targetRevision: main
   syncPolicy:

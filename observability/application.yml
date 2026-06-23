@@ -6,23 +6,23 @@ spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
-  - matrix:
+    - matrix:
         generators:
-        - clusters:
-            selector:
-              matchLabels:
-                type: 'vks'
-        - list:
-            elements:
-            - appName: repo
-              path: ./vks-standard-repo/source
-              namespace: tkg-system
-            - appName: rbac
-              path: ./package-rbac/source
-              namespace: infra-packages
-            - appName: observability
-              path: ./observability/source
-              namespace: observability
+          - clusters:
+              selector:
+                matchLabels:
+                  type: "vks"
+          - list:
+              elements:
+                - appName: repo
+                  path: ./vks-standard-repo/source
+                  namespace: tkg-system
+                - appName: rbac
+                  path: ./package-rbac/source
+                  namespace: infra-packages
+                - appName: observability
+                  path: ./observability/source
+                  namespace: observability
   strategy:
     type: RollingSync
     rollingSync:
@@ -40,16 +40,16 @@ spec:
                 - observability
   template:
     metadata:
-      name: '{{.name}}-{{.appName}}'
+      name: "{{.name}}-{{.appName}}"
     spec:
       project: default
       source:
-        repoURL: https://github.com/warroyo/vks-argocd-examples
+        repoURL: https://github.com/mylesagray/vks-argocd-examples
         targetRevision: main
-        path: '{{.path}}'
+        path: "{{.path}}"
       destination:
-        name: '{{.name}}'
-        namespace: '{{.namespace}}'
+        name: "{{.name}}"
+        namespace: "{{.namespace}}"
       syncPolicy:
         automated:
           prune: true
@@ -61,4 +61,4 @@ spec:
             maxDuration: 3m0s
             factor: 2
         syncOptions:
-        - CreateNamespace=true
+          - CreateNamespace=true

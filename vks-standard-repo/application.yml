@@ -6,21 +6,21 @@ spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
-  - clusters:
-      selector:
-        matchLabels:
-          type: 'vks'
+    - clusters:
+        selector:
+          matchLabels:
+            type: "vks"
   template:
     metadata:
-      name: '{{.name}}-vks-standard-repo'
+      name: "{{.name}}-vks-standard-repo"
     spec:
       project: "default"
       source:
         path: ./vks-standard-repo/source
-        repoURL: https://github.com/warroyo/vks-argocd-examples
+        repoURL: https://github.com/mylesagray/vks-argocd-examples
         targetRevision: main
       destination:
-        server: '{{.server}}'
+        server: "{{.server}}"
         namespace: tkg-system
       syncPolicy:
         automated:

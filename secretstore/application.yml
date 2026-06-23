@@ -6,44 +6,44 @@ spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
-  - clusters:
-      selector:
-        matchLabels:
-          type: 'vks'
+    - clusters:
+        selector:
+          matchLabels:
+            type: "vks"
   template:
     metadata:
-      name: '{{.name}}-secret-store-int'
+      name: "{{.name}}-secret-store-int"
     spec:
       project: "default"
       source:
         path: ./secretstore/source
-        repoURL: https://github.com/warroyo/vks-argocd-examples
+        repoURL: https://github.com/mylesagray/vks-argocd-examples
         targetRevision: main
         kustomize:
           patches:
-          - target:
-              kind: Deployment
-              name: vault-injector
-            patch: |-
-              apiVersion: apps/v1
-              kind: Deployment
-              metadata:
+            - target:
+                kind: Deployment
                 name: vault-injector
-                namespace: secret-store-injector
-              spec:
-                template:
-                  spec:
-                    containers:
-                      - name: sidecar-injector
-                        env:
-                          - name: AGENT_INJECT_VAULT_ADDR
-                            value: http://197.0.0.26:8200
+              patch: |-
+                apiVersion: apps/v1
+                kind: Deployment
+                metadata:
+                  name: vault-injector
+                  namespace: secret-store-injector
+                spec:
+                  template:
+                    spec:
+                      containers:
+                        - name: sidecar-injector
+                          env:
+                            - name: AGENT_INJECT_VAULT_ADDR
+                              value: http://197.0.0.26:8200
       destination:
-        name: '{{.name}}'
+        name: "{{.name}}"
         namespace: secret-store-injector
       syncPolicy:
         automated:
           prune: true
           selfHeal: true
         syncOptions:
-        - CreateNamespace=true
+          - CreateNamespace=true

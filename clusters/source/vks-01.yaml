@@ -1,0 +1,41 @@
+apiVersion: cluster.x-k8s.io/v1beta2
+kind: Cluster
+metadata:
+  name: vks-01
+  namespace: acme-staging-fjdfm
+spec:
+  clusterNetwork:
+    pods:
+      cidrBlocks:
+        - 192.168.156.0/20
+    serviceDomain: cluster.local
+    services:
+      cidrBlocks:
+        - 10.96.0.0/12
+  topology:
+    classRef:
+      name: builtin-generic-v3.6.0
+      namespace: vmware-system-vks-public
+    controlPlane:
+      replicas: 1
+    variables:
+      - name: vmClass
+        value: best-effort-medium
+      - name: storageClass
+        value: site-a-vsan-supervisor-default-storage-policy
+      - name: kubernetes
+        value:
+          certificateRotation:
+            enabled: true
+            renewalDaysBeforeExpiry: 90
+      - name: bootstrapAddons
+        value:
+          cniRef:
+            name: antrea
+            namespace: vmware-system-vks-public
+    version: v1.35.5+vmware.1
+    workers:
+      machineDeployments:
+        - class: node-pool
+          name: kubernetes-cluster-8qjz-np-rm2y
+          replicas: 1

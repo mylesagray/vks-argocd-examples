@@ -3,17 +3,17 @@ kind: Application
 metadata:
   name: vks-standard-repo
   annotations:
-    argocd.argoproj.io/sync-wave: '-1'
+    argocd.argoproj.io/sync-wave: "-1"
   finalizers:
-  - resources-finalizer.argocd.argoproj.io
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   sources:
     - path: ./package-rbac/source
-      repoURL: https://github.com/warroyo/vks-argocd-examples
+      repoURL: https://github.com/mylesagray/vks-argocd-examples
       targetRevision: main
     - path: ./vks-standard-repo/source
-      repoURL: https://github.com/warroyo/vks-argocd-examples
+      repoURL: https://github.com/mylesagray/vks-argocd-examples
       targetRevision: main
   destination:
     name: replacme
@@ -29,4 +29,4 @@ spec:
         maxDuration: 3m0s
         factor: 2
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true

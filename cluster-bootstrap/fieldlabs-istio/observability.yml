@@ -3,13 +3,13 @@ kind: Application
 metadata:
   name: observability
   annotations:
-    argocd.argoproj.io/sync-wave: '0'
+    argocd.argoproj.io/sync-wave: "0"
   finalizers:
-  - resources-finalizer.argocd.argoproj.io
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
-    repoURL: https://github.com/warroyo/vks-argocd-examples
+    repoURL: https://github.com/mylesagray/vks-argocd-examples
     targetRevision: main
     path: ./observability/source
   destination:
@@ -26,4 +26,4 @@ spec:
         maxDuration: 3m0s
         factor: 2
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
